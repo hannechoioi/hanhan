@@ -1,0 +1,294 @@
+*{
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box;
+}
+
+/*Menu dropdown*/
+#menu ul li{ 
+    display: inline-block;
+    position: relative;
+}
+#menu ul li a{
+    padding: 20px 20px;
+    display: block;
+    color:#e2e2e2;
+    text-decoration: none;
+    text-align: center;
+    font-size: 22px;
+    font-family:'Courier New';
+    transition: 0.2s ease-in-out;
+    
+}
+#menu ul li a hr{
+    display: none;
+   
+    transition: 0.2s ease-in-out;
+}
+
+#menu ul li a:hover hr{
+    width: auto;
+    color: yellow;
+    display: flex;
+}
+
+td#nowtv{
+    color: rgb(236, 215, 21);
+    font-weight: bold;
+    font-size: 24px;
+    font-family: cursive; 
+}
+
+/*loi chao*/
+#loichao{
+   
+    position: relative;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+#loichao::before{
+    background-color: rgb(248, 248, 248);
+    content: '';
+    position: absolute;
+    height: 2360%;
+    width: 300px;         
+    animation: animate 6s linear infinite;
+}
+#loichao::after{
+    content: "Du lịch Trà Vinh";
+    position: absolute;
+    inset: 5px;
+    font-size: 28px; 
+    font-family: cursive; 
+    font-weight: bold;
+    color: rgb(6, 3, 175);
+    background: rgb(18, 240, 18);  
+    text-align: center;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/*trà vinh là của bạn*/
+#tvlcb{
+    color: rgb(6, 175, 6); 
+    text-align: center; 
+    font-size: 56px; top: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 0.5em 0.2em 0.3em #000000,
+                0.1em -0.1em 0.1em #ffffffd7,
+                0.06em -0.2em 0.9em #ece9e7de,
+                0.05em -0.25em 0.4em #20ff03,
+                0.04em -0.2em 0.3em #6cff5f,
+                0.02em -0.15em 0.2em #9dff00,
+                0.01em -0.05em 0.15em #FFEE00,
+                0.01em -0.02em 0.15em #FFEE00;
+}
+
+/*---------------------------------------------*/
+p{
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight:bold;
+    font-family:'Times New Roman', Times, serif;
+}
+table{
+    border-spacing: 0px;
+}
+/*background image----------------*/
+#maintc{
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/bgtimkiem.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    border: 0px;
+    width: 100%;
+
+    
+}
+/*-----------------*/
+/*phóng to địa điểm hover*/
+
+table#tb_img td img{
+    max-width: 100%;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(19, 8, 180, 0.4), 0 6px 20px 0 rgba(19, 8, 180, 0.4);
+}
+/*Tên của từng image*/
+#ten_img{
+    color: rgb(0, 0, 0);
+    background-color: white;
+    font-weight: bold;
+    font-size: 18px;
+    height: 30px;
+    text-align: center;
+}
+/*Tra Vinh Nowaday*/
+#logo{
+    font-size: 24px;
+    float: right;
+    top: 10px;
+    font-family: cursive;
+    color: rgb(236, 215, 21);
+    font-weight: bold;
+    right: 7px;
+    /*chữ nhảy*/
+    animation: bounce 2; 
+    animation-duration: 2s;
+    
+}
+/*Nền của bảng nội dung*/
+#tb_img{
+    background-color: rgb(242, 237, 237);
+}
+/*Tiêu đề của ảnh nội dung*/
+#tieude_img{
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0.5em 0.2em 0.3em #000000,
+                0.1em -0.1em 0.1em #FF4400,
+                0.06em -0.2em 0.9em #FF5500,
+                0.05em -0.25em 0.4em #FF7700,
+                0.04em -0.2em 0.3em #FF7700,
+                0.02em -0.15em 0.2em #FF9900,
+                0.01em -0.05em 0.15em #FFEE00,
+                0.01em -0.02em 0.15em #FFEE00;
+    color: white;      
+}
+#hieuung td{
+    transition: 0.5s;
+}
+#hieuung td#radius:hover{
+    transform: translateY(-15px);
+}
+/*Slide show*/
+.slider{
+    width: 1450px;
+    max-width: 100vw;
+    height: 590px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+.slider .list{
+    position: absolute;
+    width: max-content;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    transition: 1s;
+}
+.slider .list img{
+    width: 1450px;
+    max-width: 100vw;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider .dots{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.slider .dots li{
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.slider .dots li.active{
+    width: 30px;
+}
+
+/*Giới thiệu chung du lịch tv*/
+#gioithieu_tc{
+    border: 3px solid yellow;
+    border-radius: 15px;
+    width: 96%;
+    height: 300px;
+    margin-left: 2%;
+    background-color:rgb(242, 237, 237) ;
+}
+p{
+    margin: 5px;
+    word-spacing: 1.5px;
+    font-size: 22px;
+    line-height: 28px;
+    text-align: justify;
+    color: #000000;
+}
+#tieude_gt{
+    height: 100px;
+    font-size: 40px;
+    text-shadow: 0.5em 0.2em 0.3em #000000,
+                0.1em -0.1em 0.1em #FF4400,
+                0.06em -0.2em 0.9em #FF5500,
+                0.05em -0.25em 0.4em #FF7700,
+                0.04em -0.2em 0.3em #FF7700,
+                0.02em -0.15em 0.2em #FF9900,
+                0.01em -0.05em 0.15em #FFEE00,
+                0.01em -0.02em 0.15em #FFEE00;
+    color: white;
+    animation: lolung 1.8s ease-in-out infinite;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+@keyframes lolung{
+    0%,100%{
+        transform: translateY(15px);
+      
+    }
+    50%{
+        transform: translateY(-15px);
+        color: #20ff03;
+    }
+}
+/*Footer*/
+#container_ft{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(225, 252, 252);
+    border: 2px solid rgb(24, 211, 24);
+    border-radius: 15px;
+    height: 300px;
+    
+}
+#diachi{
+    width: 55%;
+    height:100%;
+    float: left;
+}
+#dangki{
+    height:100%;
+}
+#dangki_tt tr{
+    line-height: 40px;
+}
+#dangki_tt input{
+    font-size: 18px;
+}
+/**/
+#diachi p{
+    font-size: 18px;
+}

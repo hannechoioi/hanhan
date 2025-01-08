@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% block title %}Xác nhận xóa Giảng viên{% endblock %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xóa Giảng viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    {% block dlstu%}
+    <!-- Thanh menu ngang -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Trang web Quản lý Nghiên cứu</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/students/">Sinh viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lecturers/">Giảng viên</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    <div class="container mt-5">
+        <h2>Xác nhận xóa giảng viên</h2>
+        
+        <!-- Hiển thị thông báo từ Django messages framework -->
+        {% if messages %}
+            <div class="alert alert-warning">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <p>Bạn có chắc muốn xóa giảng viên <strong>{{ student.full_name }}</strong>?</p>
+
+        <!-- Form xác nhận xóa -->
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a href="{% url 'student' %}" class="btn btn-secondary">Quay lại</a>
+        </form>
+    </div>
+    {% endblock %}
+    {% endblock dlstu%}
+</body>
+</html>

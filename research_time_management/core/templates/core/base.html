@@ -1,0 +1,177 @@
+<!-- templates/base.html -->
+ 
+{% load static %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Trang web Quản lý Nghiên cứu{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+   
+   
+    <style>
+        .hero-section {
+            background: #f5f5f5;
+            padding: 50px 0;
+        }
+
+        .mentor-card {
+            margin: 20px 0;
+        }
+
+        .footer {
+            background-color:rgb(0, 97, 195);
+            color: white;
+            padding: 20px 0;
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 30px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-section {
+            width: 30%;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #bbb;
+        }
+        
+        .footer-bottom p {
+            margin: 0;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: left;
+            }
+        
+            .footer-section {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <!-- Thay bg-primary bằng bg-dark -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src=" {% static 'app/img/logo.png' %}" width="50" height="50" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/students/">Sinh viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lecturers/">Giảng viên</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <!-- Form tìm kiếm -->
+                        <form class="d-flex" action="{% url 'search' %}" method="get">
+                            <input class="form-control me-2" type="search" name="q" placeholder="Nhập mã số sv/gv" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Tìm</button>
+                        </form>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <!-- Dropdown cho người dùng đã đăng nhập -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Chào, {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!--<li><a class="dropdown-item" href="#">Thông tin</a></li>-->
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/">Đăng nhập</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register/">Đăng ký</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+  
+    <!-- Nội dung trang con -->
+    <div class="container mt-5">
+        {% block content %}
+        <!-- Nội dung sẽ được thay thế ở đây -->
+        {% endblock %}
+    </div>
+
+    <!-- Thêm Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    {% block register%}{% endblock register%}
+    {% block login%}{% endblock login%}
+    {% block search%}{% endblock search%}
+    {% block dllec%}{% endblock dllec%}
+    {% block dlstu%}{% endblock dlstu%}
+</body>
+</html>

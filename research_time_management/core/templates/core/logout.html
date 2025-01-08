@@ -1,0 +1,13 @@
+<!-- templates/logout.html -->
+{% extends 'core/base.html' %}
+
+{% block title %}Đăng xuất thành công{% endblock %}
+
+{% block content %}
+    <div class="alert alert-success" role="alert">
+        Bạn đã đăng xuất thành công.
+    </div>
+    <p>Chúng tôi sẽ chuyển hướng bạn đến trang chủ ngay.</p>
+    <meta http-equiv="refresh" content="3; url={% url 'home' %}" />
+    <p>Hoặc bạn có thể nhấp vào <a href="{% url 'home' %}">đây</a> để quay lại trang chủ.</p>
+{% endblock %}

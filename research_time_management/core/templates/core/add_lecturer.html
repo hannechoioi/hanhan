@@ -1,0 +1,112 @@
+{% extends 'core/base.html' %}
+{% block title %}Thêm Giảng viên{% endblock %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Giảng viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- Thanh menu ngang -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Trang web Quản lý Nghiên cứu</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/students/">Sinh viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lecturers/">Giảng viên</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    <div class="container mt-5">
+        <h2 align="center">Vui lòng nhập thông tin giảng viên</h2>
+        <form method="POST" action="{% url 'add_lecturer' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="lecturer_id" class="form-label">Mã giảng viên</label>
+                <input type="text" class="form-control" id="lecturer_id" name="lecturer_id" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="full_name" class="form-label">Họ tên</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" required>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="time_start" class="form-label">Thời gian bắt đầu nghiên cứu</label>
+                <input type="datetime-local" class="form-control" id="time_start" name="time_start" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="time_end" class="form-label">Thời gian kết thúc nghiên cứu</label>
+                <input type="datetime-local" class="form-control" id="time_end" name="time_end" required>
+            </div>
+
+           
+
+            <div class="d-flex justify-content-between">
+                <!-- Nút Thêm Giảng viên -->
+                <button type="submit" class="btn btn-primary">Thêm</button>
+                <!-- Nút Quay lại (màu đỏ) -->
+                <a href="{% url 'lecturers' %}" class="btn btn-danger">Quay lại</a>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+
+    <script>
+        // Tính toán tổng thời gian khi thay đổi thời gian bắt đầu và kết thúc
+        document.getElementById('time_end').addEventListener('change', function() {
+            const timeStart = document.getElementById('time_start').value;
+            const timeEnd = document.getElementById('time_end').value;
+
+            if (timeStart && timeEnd) {
+                const startDate = new Date(timeStart);
+                const endDate = new Date(timeEnd);
+                const timeDiff = (endDate - startDate) / 1000 / 60 / 60; // thời gian chênh lệch tính theo giờ
+                document.getElementById('time').value = timeDiff.toFixed(2) + ' giờ';
+            }
+        });
+    </script>
+<!--# forms.py
+from django import forms
+from .models import Lecturer
+
+class LecturerForm(forms.ModelForm):
+    class Meta:
+        model = Lecturer
+        fields = ['lecturer_id', 'full_name', 'class_code', 'time_start', 'time_end']
+        widgets = {
+            'time_start': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'time_end': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
+
+    # Tính toán tổng thời gian nghiên cứu từ thời gian bắt đầu và kết thúc
+    def clean(self):
+        cleaned_data = super().clean()
+        time_start = cleaned_data.get('time_start')
+        time_end = cleaned_data.get('time_end')
+
+        if time_start and time_end:
+            time_spent = (time_end - time_start).total_seconds() / 3600  # Tính tổng thời gian (giờ)
+            cleaned_data['time_spent'] = time_spent
+
+        return cleaned_data
+-->
+</body>
+</html>

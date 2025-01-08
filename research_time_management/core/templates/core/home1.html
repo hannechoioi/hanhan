@@ -1,0 +1,144 @@
+<!-- templates/home.html 
+ <!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Mentor</title>
+    <! Kết nối với Bootstrap từ CDN 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">-->
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Trang chủ{% endblock title%}
+
+{% block content %}
+
+   
+    
+<!--</head>
+
+<body>-->
+    
+   <!-- Phần Hero -->
+  <section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4">QUẢN LÝ THỜI GIAN NGHIÊN CỨU KHOA HỌC</h1>
+        <p class="lead">Khoa Kỹ thuật và Công nghệ - Trường Đại học Trà Vinh</p>
+    </div>
+    <!-- Thêm bức ảnh dưới phần Hero -->
+    <div class="container text-center">
+        <img src="{% static 'app/images/Axzd_1_BoHoKhoa.jpg' %}" alt="Mentor Image" class="hero-image">
+    </div> 
+    </div>
+</section>
+
+<!-- Phần Giới thiệu các Huấn luyện viên -->
+<section class="container text-center my-5">
+    <h2>NHỮNG TIN TỨC NỔI BẬT</h2>
+    <div class="row">
+        <div class="col-md-4 mentor-card">
+            <div class="card">
+                <img src="{% static 'app/images/k1Yi_Chao don TSV.jpg' %}" class="card-img-top" alt="Mentor 1" href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/khoa-ky-thuat-va-cong-nghe-to-chuc-le-chao-don-tan-sinh-vien-va-khai-giang-nam-hoc-2024-2025/162.html">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Khoa Kỹ thuật và Công nghệ tổ chức lễ chào đón Tân sinh viên và khai giảng năm học 2024-2025</p>
+                    <a href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/khoa-ky-thuat-va-cong-nghe-to-chuc-le-chao-don-tan-sinh-vien-va-khai-giang-nam-hoc-2024-2025/162.html" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mentor-card">
+            <div class="card">
+                <img src="{% static "app/images/Hop_tac_vi_mach_ban_dan_h2.png" %}" class="card-img-top" alt="Mentor 2">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Hợp tác đào tạo ngành vi mạch bán dẫn tại Trường Đại học Trà Vinh</p>
+                    <a href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/hop-tac-dao-tao-nganh-vi-mach-ban-dan-tai-truong-dai-hoc-tra-vinh/156.html" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mentor-card">
+            <div class="card">
+                <img src="{% static "app/images/tong_ket_h8-min.jpg" %}" class="card-img-top" alt="Mentor 2">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Hội nghị tổng kết công tác đào tạo năm học 2023-2024 và định hướng nhiệm vụ năm học 2024-2025</p>
+                    <a href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/hoi-nghi-tong-ket-cong-tac-dao-tao-nam-hoc-2023-2024-va-dinh-huong-nhiem-vu-nam-hoc-2024-2025/160.html" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mentor-card">
+            <div class="card">
+                <img src="{% static "app/images/tt.jpg" %}" class="card-img-top" alt="Mentor 2">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Hoạt động thiện nguyện "Trao bánh Trung thu và lồng đèn" mừng Tết Trung thu 2024</p>
+                    <a href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/cong-doan-bo-phan-khoa-ky-thuat-va-cong-nghe-tiep-tuc-hoat-dong-thien-nguyen-trao-banh-trung-thu-va-long-den-mung-tet-trung-thu-2024/161.html" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 mentor-card">
+            <div class="card">
+                <img src="{% static "app/images/Thiet_ke_cau_thep_h11.jpg" %}" class="card-img-top" alt="Mentor 2">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Cuộc thi thiết kế Cầu thép năm 2024 tại Trường Đại học Trà Vinh</p>
+                    <a href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/cuoc-thi-thiet-ke-cau-thep-nam-2024-tai-truong-dai-hoc-tra-vinh/159.html" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 mentor-card">
+            <div class="card">
+                <img src="{% static "app/images/TVU_RET2024_Chon_Web-2.jpg" %}" class="card-img-top" alt="Mentor 3">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Chia sẻ nghiên cứu các vấn đề về khoa học kỹ thuật - RET 2024</p>
+                    <a href="https://ktcn.tvu.edu.vn/tin-tuc/bai-viet/chia-se-nghien-cuu-cac-van-de-ve-khoa-hoc-ky-thuat-ret-2024/157.html" class="btn btn-primary">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Phần Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h4>Về chúng tôi</h4>
+            <p>Rất mong nhận được sự thông cảm và phản hồi tích cực từ phía giảng viên hướng dẫn vì trang web còn đang phát triển!</p>
+        </div>
+        <div class="footer-section links">
+            <h4>Trở về trang</h4>
+            <ul>
+                <li><a href="/">Trang chủ</a></li>
+                <li><a href="/students/">Sinh viên</a></li>
+                <li><a href="/lecturers/">Giảng viên</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h4>Liên hệ</h4>
+            <p>Email: phannguyenhoanghan@company.com</p>
+            <p>Phone: +84 932 982 218</p>
+            <ul>
+                <li><a href="https://www.facebook.com/phannguyenhoanghan/">Facebook</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Copyright by TVU SET</p>
+    </div>
+</footer>
+
+
+<!-- Kết nối với JavaScript từ CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<!--</body>
+
+</html>-->
+
+{% endblock content %}
